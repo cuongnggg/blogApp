@@ -1,52 +1,55 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Register from './pages/Register'
-import Login from './pages/Login'
-import Write from './pages/Write'
-import Home from './pages/Home'
-import Single from './pages/Single'
-
-
-import NavBar from './components/Navbar'
-import Footer from './components/Footer'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+} from "react-router-dom";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Write from "./pages/Write";
+import Home from "./pages/Home";
+import Single from "./pages/Single";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import "./style.scss"
+
 const Layout = () => {
   return (
     <>
-      <NavBar />
-      <Outlet /> {/* <Outlet /> sẽ tự động render ra component con (Children) */}
+      <Navbar />
+      <Outlet />
       <Footer />
     </>
-  )
-}
+  );
+};
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
       {
-        path: '/',
-        element: <Home />
+        path: "/",
+        element: <Home />,
       },
       {
-        path: '/post/:id',
-        element: <Single />
+        path: "/post/:id",
+        element: <Single />,
       },
       {
-        path: '/write',
-        element: <Write />
+        path: "/write",
+        element: <Write />,
       },
-    ]
+    ],
   },
   {
-    path: '/register',
-    element: <Register />
+    path: "/register",
+    element: <Register />,
   },
   {
-    path: '/login',
-    element: <Login />
-  }
-])
+    path: "/login",
+    element: <Login />,
+  },
+]);
 
 function App() {
   return (
@@ -57,7 +60,5 @@ function App() {
     </div>
   );
 }
-
-
 
 export default App;
